@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo } from "@/component/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { cn } from "@/utils/cn";
 import {
   Button,
@@ -30,7 +30,7 @@ export const PublicLayoutNavbar = () => {
 
   return (
     <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
+      <NavbarContent justify="center">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
@@ -40,7 +40,7 @@ export const PublicLayoutNavbar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden lg:flex gap-3" justify="center">
+      <NavbarContent className="hidden lg:flex gap-3" justify="start">
         {navigations.map((item) => (
           <NavbarItem key={item.name}>
             <Link
@@ -59,10 +59,11 @@ export const PublicLayoutNavbar = () => {
       </NavbarContent>
 
       <NavbarContent as="div" className="items-center" justify="end">
+        {/* Desktop: show search, login, signup */}
         <NavbarContent justify="end" className="hidden lg:flex">
           <Input
             classNames={{
-              base: "w-1/2 h-10",
+              base: "w-3/4 h-10",
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper:
@@ -74,19 +75,36 @@ export const PublicLayoutNavbar = () => {
             type="search"
           />
           <NavbarItem>
-            <Link href="#" className="hover:text-primary">
-              Login
-            </Link>
+            <Button variant="light">
+              <Link href="/login">Log in</Link>
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button color="primary">
+              <Link href="/register">Sign Up</Link>
+            </Button>
           </NavbarItem>
         </NavbarContent>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
+        {/* Mobile: search input */}
+        <div className="px-4 py-2">
+          <Input
+            classNames={{
+              base: "w-full h-10",
+              mainWrapper: "h-full",
+              input: "text-small",
+              inputWrapper:
+                "h-full font-normal text-default-500 bg-default-100 dark:bg-default-500/20",
+            }}
+            placeholder="Search Event..."
+            size="sm"
+            startContent={<Search size={18} />}
+            type="search"
+          />
+        </div>
+        {/* Mobile: navigation links */}
         {navigations.map((item) => (
           <NavbarMenuItem
             key={`${item.name}`}
@@ -105,6 +123,24 @@ export const PublicLayoutNavbar = () => {
             </Link>
           </NavbarMenuItem>
         ))}
+        {/* Mobile: login link */}
+        <NavbarMenuItem className="w-full gap-2 px-4 py-2 rounded-lg">
+          <Link href="/login" className="hover:text-primary font-medium w-full">
+            Login
+          </Link>
+        </NavbarMenuItem>
+        {/* Mobile: sign up button */}
+        <NavbarMenuItem className="w-full gap-2 px-4 py-2 rounded-lg">
+          <Button
+            as={Link}
+            color="primary"
+            href="#"
+            variant="flat"
+            className="w-full"
+          >
+            Sign Up
+          </Button>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );

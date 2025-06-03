@@ -1,11 +1,11 @@
-import PublicLayout from "@/component/layouts/PublicLayout";
+import PublicLayout from "@/components/layouts/PublicLayout";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <PublicLayout>
       <div className="flex justify-center items-center h-screen">
-        <div className="p-5 bg-slate-500 rounded-md">
+        <div className="p-5 bg-slate-500 lg:bg-blue-100 rounded-md">
           <h1 className="text-3xl text-center text-white font-bold">
             BIKIN EVENT
           </h1>
