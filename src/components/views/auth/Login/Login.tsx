@@ -10,16 +10,12 @@ import {
   Input,
 } from "@heroui/react";
 import { Eye, EyeClosed, Lock, Mail } from "lucide-react";
-import { useState } from "react";
 import { Controller } from "react-hook-form";
 import useLogin from "./useLogin";
 import Link from "next/link";
 
 export const Login = () => {
-  const { control } = useLogin();
-
-  const [isVisible, setIsVisible] = useState(false);
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const { control, isVisible, toggleVisibility } = useLogin();
 
   return (
     <Card className="max-w-md w-full p-4">
