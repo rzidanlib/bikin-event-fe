@@ -1,21 +1,16 @@
 "use client";
 
 import { Logo } from "@/components/ui/Logo";
-import { cn } from "@/utils/cn";
 import {
-  Button,
   Input,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
   NavbarMenuToggle,
 } from "@heroui/react";
 import { CalendarRange, Home, Search } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navigations = [
@@ -52,16 +47,19 @@ const PublicNavbar = () => {
 
         <NavbarItem>
           <Link
-            href="/login"
+            href="/sign-in"
             className="px-4 py-2 rounded-lg hover:bg-gray-200 text-blue-600 font-semibold transition-all duration-300"
           >
             Login
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Button color="primary" className="font-semibold">
+          <Link
+            href="/sign-up"
+            className="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-semibold transition-all duration-300"
+          >
             Sign Up
-          </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenuToggle

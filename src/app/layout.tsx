@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 
 import { Providers as HeroUIProviders } from "@/providers/HeroUIProviders";
+import { Providers as QueryClientProvider } from "@/providers/QueryClientProviders";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeroUIProviders>{children}</HeroUIProviders>
+        <QueryClientProvider>
+          <HeroUIProviders>{children}</HeroUIProviders>
+        </QueryClientProvider>
       </body>
     </html>
   );

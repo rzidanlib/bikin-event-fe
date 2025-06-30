@@ -1,23 +1,25 @@
+"use client";
+
 import EventCard from "@/components/Card/EventCard";
-import Hero from "@/components/LandingPage/Hero";
+import Hero from "@/components/Public/Hero";
 import { Button } from "@heroui/react";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
+    <main className="max-w-7xl mx-auto">
       <section className="py-8">
         <Hero />
       </section>
 
-      <section className="py-8">
+      <section className="my-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <div>
             <h2 className="text-3xl font-bold tracking-tighter">
               Featured Events
             </h2>
             <p className="text-foreground-500 mt-2">
-              Discover our most popular upcoming events.
+              Discover our most popular events.
             </p>
           </div>
           <Link href="/events" className="mt-4 md:mt-0">
@@ -31,6 +33,28 @@ export default function Home() {
           <EventCard />
         </div>
       </section>
-    </>
+
+      <section className="my-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tighter">
+              Discover More Events
+            </h2>
+            <p className="text-foreground-500 mt-2">
+              Discover our most popular events.
+            </p>
+          </div>
+          <Link href="/events" className="mt-4 md:mt-0">
+            <Button variant="bordered">View All Events</Button>
+          </Link>
+        </div>
+        <div className="grid gap-6 grid-cols-2 lg:grid-cols-4 mb-8">
+          <EventCard />
+          <EventCard />
+          <EventCard />
+          <EventCard />
+        </div>
+      </section>
+    </main>
   );
 }

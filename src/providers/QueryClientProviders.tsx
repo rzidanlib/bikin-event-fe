@@ -1,4 +1,7 @@
-import { QueryClient } from "@tanstack/react-query";
+"use client";
+
+import { onErrorHandler } from "@/libs/axios/responseHandler";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,4 +19,8 @@ const queryClient = new QueryClient({
   },
 });
 
-export const QueryClientProviders = () => {};
+export const Providers = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+};

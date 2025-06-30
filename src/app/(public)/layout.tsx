@@ -8,7 +8,7 @@ export default function PublicLayout({
   return (
     <>
       <PublicNavbar />
-      <div className="max-w-7xl mx-auto">{children}</div>
+      {children}
     </>
   );
 }

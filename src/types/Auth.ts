@@ -1,10 +1,10 @@
-import { Session, User } from "next-auth";
-import { JWT } from "next-auth/jwt";
+import { Session, User } from 'next-auth';
+import { JWT } from 'next-auth/jwt';
 
 interface IRegister {
-  fullName: string;
   username: string;
   email: string;
+  role: 'member' | 'organizer';
   password: string;
   confirmPassword: string;
 }
@@ -16,6 +16,7 @@ interface IActivation {
 interface ILogin {
   identifier: string;
   password: string;
+  role: 'member' | 'organizer';
 }
 
 interface UserExtended extends User {
